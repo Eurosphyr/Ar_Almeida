@@ -1,9 +1,12 @@
 import fastify from "fastify";
-import fastifyCookie from "@fastify/cookie";
-import cors from "@fastify/cors";
 import { appRoutes } from "./http/routes";
+import cors from "@fastify/cors";
+import { env } from "process";
+import fastifyCookie from "@fastify/cookie";
 
 export const app = fastify();
 
+app.register(fastifyCookie);
 app.register(cors);
+
 app.register(appRoutes);
