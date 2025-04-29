@@ -1,15 +1,12 @@
 import { FastifyInstance } from "fastify";
+import { home } from "./controllers/home/home";
+import { budget } from "./controllers/budget/budget";
+import { solutions } from "./controllers/solutions/solutions";
+import { partners } from "./controllers/partners/partners";
 
 export async function appRoutes(app: FastifyInstance) {
-  app.get("/health", async () => {
-    return { status: "ok" };
-  });
-
-  app.get("/hello", async () => {
-    return { message: "Hello World!" };
-  });
-
-  app.get("/goodbye", async () => {
-    return { message: "Goodbye World!" };
-  });
+  app.get("/", home);
+  app.get("/budget", budget);
+  app.get("/solutions", solutions);
+  app.get("/partners", partners);
 }
