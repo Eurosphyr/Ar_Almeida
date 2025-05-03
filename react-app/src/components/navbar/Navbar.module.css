@@ -1,0 +1,95 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar img {
+  height: 50px; /* Adjust the size of the logo */
+}
+
+.navbar p {
+  margin-left: 10px; /* Add spacing between the logo and text */
+  font-size: 1.2rem; /* Adjust font size */
+  font-weight: bold;
+}
+
+.navbar-logo-container {
+  display: flex;
+  align-items: center; /* Align logo and text vertically */
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu li {
+  padding: 1rem;
+}
+
+.navbar a {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.mobile_btn {
+  display: none;
+}
+.orcamentoButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.orcamentoButton:hover {
+  background-color: darkred;
+}
+@media screen and (max-width: 720px) {
+  .mobile_btn {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .menu {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #f8f8f8;
+    z-index: 10;
+    transition: left 1s;
+  }
+
+  .active {
+    left: 0;
+  }
+
+  .navbar a {
+    font-size: 2rem;
+  }
+  .orcamentoButton {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.3rem;
+  }
+}
+
+

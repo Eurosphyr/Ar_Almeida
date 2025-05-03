@@ -1,0 +1,73 @@
+.serviceCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: all 0.3s ease;
+  height: auto;
+}
+
+.label {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.showOverlay {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hide the label when hovering */
+.showOverlay .label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.textContent {
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textContent h3 {
+  margin-top: 20px;
+  padding-top:10px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.textContent p {
+  font-size: 14px;
+  line-height: 1.5;
+}

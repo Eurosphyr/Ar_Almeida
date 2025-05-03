@@ -1,0 +1,44 @@
+.section {
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  height: auto;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+.hero-button {
+  display: inline-block;
+  background-color: #e10600;
+  color: white;
+  font-weight: 500;
+  padding: 12px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+    
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  padding: 4vh;
+}
+
