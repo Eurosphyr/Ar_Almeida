@@ -24,7 +24,6 @@
     left: 0;
     right: 0;
     height: 1px;
-    border-top: 1px dotted #ccc;
   }
   
   .title::before {
@@ -50,7 +49,6 @@
   }
   
   .imagePlaceholder {
-    background-color: #e0e0e0;
     height: 100%;
     min-height: 200px;
     display: flex;
@@ -58,6 +56,8 @@
     justify-content: center;
     color: #666;
     font-size: 0.9rem;
+    max-width: 300px;
+
   }
   
   .textContent {
@@ -90,7 +90,11 @@
   .contactLink:hover {
     text-decoration: underline;
   }
-  
+  .Imagem {
+    width: auto;
+    max-width: 400px;
+    border-radius: 8px;
+  }	
   .icon {
     width: 16px;
     height: 16px;
@@ -101,9 +105,7 @@
       flex-direction: row;
     }
   
-    .imageContainer {
-      max-width: 300px;
-    }
+  
   
     .title {
       font-size: 2.5rem;

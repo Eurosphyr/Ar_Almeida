@@ -27,12 +27,12 @@
   background-color: #e10600;
   color: white;
   font-weight: 500;
-  padding: 12px 32px;
+  padding: 12px 52px;
   border-radius: 50px;
   text-decoration: none;
   transition: background-color 0.3s ease;
   font-size: 16px;
-    
+  margin-bottom: 20px;
 }
 
 .button-container {

@@ -1,8 +1,10 @@
-module.exports = function () {
+module.exports = function(api) {
+    // This is the missing line that's causing the error
+    api.cache(true);
+    
     return {
       plugins: [
         ['babel-plugin-react-compiler', {}], // React Compiler must run first!
-        // other plugins...
       ],
       presets: [
         '@babel/preset-env',

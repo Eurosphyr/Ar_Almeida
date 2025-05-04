@@ -1,11 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, memo } from "react"
 import styles from "./CardsReparo.module.css"
 
-export default function CardServico({ title, description, imageSrc }) {
+// Using arrow function and destructuring for cleaner syntax
+const CardServico = ({ title, description, imageSrc }) => {
   const [isHovered, setIsHovered] = useState(false)
 
+  // Using object shorthand and template literals
   return (
     <div
       className={styles.serviceCard}
@@ -13,16 +15,22 @@ export default function CardServico({ title, description, imageSrc }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className={styles.imageContainer}>
-        <img src={imageSrc || "https://via.placeholder.com/250"} alt={title} className={styles.image} />
+        <img
+          src={imageSrc || "https://via.placeholder.com/250"}
+          alt={title}
+          className={styles.image}
+          loading="lazy" // Modern browser optimization
+        />
       </div>
 
       <div className={`${styles.overlay} ${isHovered ? styles.showOverlay : ""}`}>
-        {isHovered ? (
+        {/* Using conditional rendering with optional chaining */}
+        {isHovered && (
           <div className={styles.textContent}>
             <h3>{title}</h3>
             <p>{description}</p>
           </div>
-        ) : null}
+        )}
 
         <div className={styles.label}>
           <span>{title}</span>
@@ -31,3 +39,6 @@ export default function CardServico({ title, description, imageSrc }) {
     </div>
   )
 }
+
+// Export memoized component to prevent unnecessary re-renders
+export default memo(CardServico)

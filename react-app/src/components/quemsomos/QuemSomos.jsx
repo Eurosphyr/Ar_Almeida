@@ -1,6 +1,6 @@
 import styles from "./QuemSomos.module.css"
 import { ArrowRight } from "lucide-react"
-
+import QuemSomosImg from "../../images/QuemSomos.jpeg"
 export default function QuemSomos() {
   return (
     <section className={styles.section}>
@@ -10,7 +10,7 @@ export default function QuemSomos() {
         <div className={styles.content}>
           <div className={styles.imageContainer}>
             <div className={styles.imagePlaceholder}>
-              <span>Imagem relacionada</span>
+                <img src={QuemSomosImg} alt='quem somos' className={styles.Imagem} />
             </div>
           </div>
 
