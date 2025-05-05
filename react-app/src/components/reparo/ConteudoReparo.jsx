@@ -31,7 +31,7 @@ const services = [
 const ConteudoReparo = () => {
   return (
     <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>Manutenções</h2>
+   
       <div className={styles.grid}>
         {/* Using array methods for cleaner rendering */}
         {services.map(({ id, title, description, imageSrc }) => (
