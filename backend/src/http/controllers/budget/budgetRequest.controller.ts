@@ -1,62 +1,47 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { budgetRequestSchema } from "../../../schemas/budget/budgetRequest.schema";
-import { handleBudgetRequest } from "../../../services/budgetRequest.service";
-import { z } from "zod";
+import { sendEmail } from "../../../utils/mailer";
+import { Multipart, MultipartFile, MultipartValue } from "@fastify/multipart";
 
-// Mude para o esquema JSON compatível com o Fastify
-export const budgetRequestSchemaJson = {
-  type: "object",
-  properties: {
-    name: { type: "string" },
-    company: { type: "string" },
-    cnpj: { type: "string" },
-    role: { type: "string" },
-    phone: { type: "string" },
-    email: { type: "string", format: "email" },
-    product: { type: "string" },
-    subject: { type: "string" },
-    message: { type: "string" },
-    file: { type: "string" },
-  },
-  required: [
-    "name",
-    "company",
-    "cnpj",
-    "role",
-    "phone",
-    "email",
-    "product",
-    "subject",
-    "message",
-  ],
-};
+function isMultipartFile(part: Multipart): part is MultipartFile {
+  return (part as MultipartFile).file !== undefined;
+}
 
-export type BudgetRequest = z.infer<typeof budgetRequestSchema>;
+function isMultipartValue(part: Multipart): part is MultipartValue {
+  return (part as MultipartValue).value !== undefined;
+}
 
-export async function submitBudgetRequest(
+export async function handleBudgetRequest(
   request: FastifyRequest,
   reply: FastifyReply
 ) {
-  const data = request.body as BudgetRequest;
+  const parts = request.parts();
+  const formData: Record<string, string> = {};
+  let uploadedFile: Buffer | null = null;
+  let fileName = "";
 
-  const parse = budgetRequestSchema.safeParse(data);
-  if (!parse.success) {
-    return reply.status(400).send(parse.error.format());
+  for await (const part of parts) {
+    if (isMultipartFile(part)) {
+      const chunks: Uint8Array[] = [];
+      for await (const chunk of part.file) {
+        chunks.push(chunk);
+      }
+      uploadedFile = Buffer.concat(chunks);
+      fileName = part.filename || "arquivo-sem-nome";
+    } else if (isMultipartValue(part)) {
+      formData[part.fieldname] = part.value as string; // <-- Aqui
+    }
   }
 
-  const response = await handleBudgetRequest({
-    ...parse.data,
-    name: parse.data.name || "Default Name",
-    company: parse.data.company || "Default Company",
-    cnpj: parse.data.cnpj || "Default CNPJ",
-    role: parse.data.role || "Default Role",
-    phone: parse.data.phone || "Default Phone",
-    email: parse.data.email || "Default Email",
-    product: parse.data.product || "Default Product",
-    subject: parse.data.subject || "Default Subject",
-    message: parse.data.message || "Default Message",
-    file: parse.data.file ? parse.data.file : undefined,
-  });
+  try {
+    await sendEmail(
+      formData,
+      uploadedFile || Buffer.from(""),
+      fileName || "sem-arquivo.txt"
+    );
 
-  return reply.send(response);
+    return reply.status(200).send({ message: "Orçamento enviado com sucesso" });
+  } catch (err) {
+    console.error(err);
+    return reply.status(500).send({ error: "Erro ao enviar orçamento" });
+  }
 }

@@ -1,10 +1,8 @@
 import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import Logo from '../../images/ARAlmeida.png';
-import {
-  AiOutlineMenu,
-  AiOutlineClose,
-} from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -16,7 +14,7 @@ const Navbar = () => {
         <p>A.R. Almeida</p>
       </div>
       <nav>
-        <ul className={nav ? [styles.menu, styles.active].join(' ') : [styles.menu]} >
+        <ul className={nav ? [styles.menu, styles.active].join(' ') : [styles.menu]}>
           <li>
             <a href='/#'>Serviços</a>
           </li>
@@ -27,7 +25,9 @@ const Navbar = () => {
             <a href='/#'>Parceiros</a>
           </li>
           <li>
-            <button className={styles.orcamentoButton}>Orçamento</button>
+            <Link to="/orcamento">
+              <button className={styles.orcamentoButton}>Orçamento</button>
+            </Link>
           </li>
         </ul>
       </nav>
