@@ -8,6 +8,7 @@ import Reparos from './components/reparo/Reparos';
 import QuemSomos from './components/quemsomos/QuemSomos';
 import OrcamentoForm from './pages/forms/OrcamentoForm';
 import Clientes from './pages/clientes/Clientes';
+import Dados from './pages/dados/Dados';
 
 function Home() {
   return (
@@ -34,7 +35,7 @@ function App() {
             <Footer />
           </>
         } />
-        <Route path="/parceiros" element={
+        <Route path="/clientes" element={
           <>
             <Navbar />
             <Clientes />

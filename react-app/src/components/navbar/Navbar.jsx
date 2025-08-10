@@ -19,10 +19,10 @@ const Navbar = () => {
             <a href='/#'>Serviços</a>
           </li>
           <li>
-            <a href='/#'>Informações</a>
+            <a href='/dados'>Informações</a>
           </li>
           <li>
-            <Link to="/parceiros">
+            <Link to="/clientes">
               <button className={styles.orcamentoButton}>Parceiros</button>
             </Link>
           </li>
