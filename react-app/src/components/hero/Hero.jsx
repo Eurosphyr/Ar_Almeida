@@ -7,7 +7,7 @@ const Hero = () => {
 
       <div className={styles['hero-content']}>
         <h1 className={styles['hero-title']}>Contrate os serviços mais seguros e confiáveis do mercado</h1>
-        <a href="/contrate" className={styles['hero-button']}>
+        <a href="/orcamento" className={styles['hero-button']}>
           Contrate agora
         </a>
       </div>
