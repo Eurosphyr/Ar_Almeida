@@ -22,7 +22,9 @@ const Navbar = () => {
             <a href='/#'>Informações</a>
           </li>
           <li>
-            <a href='/#'>Parceiros</a>
+            <Link to="/parceiros">
+              <button className={styles.orcamentoButton}>Parceiros</button>
+            </Link>
           </li>
           <li>
             <Link to="/orcamento">

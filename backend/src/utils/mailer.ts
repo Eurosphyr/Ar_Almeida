@@ -26,7 +26,7 @@ export async function sendEmail(
 ) {
   const mailOptions = {
     from: process.env.SMTP_USER || "seuemail@gmail.com",
-    to: "miguel.mmgg2018@gmail.com", // altere para onde o orçamento deve ir
+    to: "danielgfgonsales@gmail.com", // altere para onde o orçamento deve ir
     subject: `Novo orçamento: ${formData.assunto || "sem assunto"}`,
     text: `
 Novo orçamento recebido:
