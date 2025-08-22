@@ -4,15 +4,15 @@ import './styles_c/clientes.css';
 const Clientes = () => {
     return (
         <main>
-            <div class="grid">
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
-                <div class="div"><p>a</p></div>
+            <div class="grid1">
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
+                <div class="div1"><p>a</p></div>
             </div>
         </main>
     )

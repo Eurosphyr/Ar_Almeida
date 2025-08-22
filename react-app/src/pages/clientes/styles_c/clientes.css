@@ -1,11 +1,11 @@
 main{
     margin:0;
 }
-.grid{
+.grid1{
     display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 40vh 40vh;
 }
-.div{
+.div1{
     margin: auto;
 }

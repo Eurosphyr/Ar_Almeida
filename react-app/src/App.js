@@ -42,6 +42,13 @@ function App() {
             <Footer />
           </>
         } />
+        <Route path="/dados" element={
+          <>
+            <Navbar />
+            <Dados />
+            <Footer />
+          </>
+        } />
       </Routes>
     </Router>
   );
